@@ -1,9 +1,8 @@
-import UserService from '../services/User/UserService';
+import User from '../models/User';
+import CRUDController from './CRUDController';
 
-class UserController {
-  static async store(ctx) {
-    ctx.body = await UserService.create(ctx.request.body);
-  }
-}
+const UserController = CRUDController(User, {
+    exclude: 'passwordHash',
+});
 
 export default UserController;

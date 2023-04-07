@@ -10,6 +10,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
+  },
   rules: {
+    'import/extensions': 'off',
+    'class-methods-use-this': 'off',
   },
 };

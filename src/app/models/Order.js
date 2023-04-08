@@ -1,14 +1,12 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
 
-const Order = connection.define('Food', {
+const Order = connection.define('Order', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  name: DataTypes.STRING,
-  price: DataTypes.BIGINT.UNSIGNED,
 });
 
 Order.associate = (models) => {

@@ -1,9 +1,13 @@
-import User from "../models/User";
-import Session from "../models/Session";
-import { sign } from "@/utils/jwt";
-import auth from "@/config/auth";
+import { sign } from '@/utils/jwt';
+import auth from '@/config/auth';
+import User from '../models/User';
+import Session from '../models/Session';
 
 class SessionService {
+  async listAll(user) {
+    return user.getSessions();
+  }
+
   async create(login, password) {
     const user = await User.signIn(login, password);
 
@@ -14,7 +18,7 @@ class SessionService {
     return {
       token: await sign(session.toJSON(), auth.secret),
       session,
-    }
+    };
   }
 
   async destroy(userId) {

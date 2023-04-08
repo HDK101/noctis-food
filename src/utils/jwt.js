@@ -1,4 +1,4 @@
-import { sign as signLib, verify as verifyLib } from "jsonwebtoken";
+import { sign as signLib, verify as verifyLib } from 'jsonwebtoken';
 
 export async function verify(token, secret) {
   return new Promise((resolve, reject) => {
@@ -10,11 +10,11 @@ export async function verify(token, secret) {
 }
 
 export async function sign(payload, secret) {
-    return new Promise((resolve, reject) => {
-        signLib(payload, secret, {
-        }, function(err, token) {
-            if (err) reject(err);
-            resolve(token);
-        });
+  return new Promise((resolve, reject) => {
+    signLib(payload, secret, {
+    }, (err, token) => {
+      if (err) reject(err);
+      resolve(token);
     });
+  });
 }

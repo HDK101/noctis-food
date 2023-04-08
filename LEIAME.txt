@@ -1,0 +1,61 @@
+Projeto de pedido de comida
+
+Bibliotecas utilizadas:
+    Hashing de senha
+        "bcrypt"
+
+    Variaveis de ambiente
+        "dotenv"
+
+    JWT:
+        "jsonwebtoken"
+
+    Routeador:
+        "@koa/router"
+        "koa"
+        "koa-body"
+        "koa-csrf"
+
+    Banco de dados:
+        "sequelize"
+        "sqlite3"
+    
+    Babel(transpilador)
+        "@babel/cli"
+        "@babel/core"
+        "@babel/node"
+        "@babel/preset-env"
+        "babel-plugin-module-resolver"
+    
+    Ferramente de analise de codigo:
+        "eslint"
+        "eslint-config-airbnb-base"
+        "eslint-import-resolver-babel-module"
+        "eslint-plugin-import"
+    
+    Biblioteca para "assistir" mudancas no codigo
+        "nodemon"
+
+Rotas:
+    CRUD de comidas: /foods
+    CRUD de usuarios: /users
+    
+    Criar sessao: POST /sessions
+    Criar pedido: POST /orders
+
+Scripts:
+    "npm run dev": Roda o programa em desenvolvimento
+    "npm run build": Transpila o projeto para produção
+    "npm run lint:fix": Roda a ferramente de análise de código e conserta os problemas
+
+Fluxo de uso:
+    Admin:
+        Criar comida:
+            1. POST /admin/foods Enviar token externo no header Authorization, "Bearer <token>"
+    Usuário
+        Criar sessao:
+            1. Criar usuário, POST /client/users
+            2. Criar sessao, POST /client/sessions
+        Criar pedido:
+            1. Usar o token da sessao criado no authorization header, "Bearer <token>"
+            2. Criar pedido, informando ids das comidas, /orders 

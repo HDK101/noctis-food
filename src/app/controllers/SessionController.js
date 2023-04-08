@@ -1,4 +1,4 @@
-import SessionService from "../services/SessionService";
+import SessionService from '../services/SessionService';
 
 export default class SessionController {
   static async store(ctx) {

@@ -18,5 +18,6 @@ module.exports = {
   rules: {
     'import/extensions': 'off',
     'class-methods-use-this': 'off',
+    'no-param-reassign': 'off',
   },
 };

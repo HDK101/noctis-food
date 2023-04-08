@@ -12,14 +12,10 @@ const User = connection.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  admin: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  },
   login: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   password: {
     type: DataTypes.VIRTUAL,
@@ -29,7 +25,7 @@ const User = connection.define('User', {
   },
 }, {
   hooks: {
-    beforeSave: async(instance) => {
+    beforeSave: async (instance) => {
       const saltRounds = 10;
       instance.passwordHash = await bcrypt.hash(instance.password, saltRounds);
     },
@@ -38,6 +34,7 @@ const User = connection.define('User', {
 
 User.associate = (models) => {
   User.hasMany(models.Session);
+  User.hasMany(models.Order);
 };
 
 /*
@@ -47,7 +44,7 @@ User.beforeCreate = (instance) => {
 }
 */
 
-User.signIn = async(login, password) => {
+User.signIn = async (login, password) => {
   const user = await User.findOne({
     where: {
       login,
@@ -58,10 +55,8 @@ User.signIn = async(login, password) => {
   if (!result) throw new Error('Invalid credentials');
 
   return user;
-}
+};
 
-User.toJSON = () => {
-  return {};
-}
+User.toJSON = () => ({});
 
 export default User;

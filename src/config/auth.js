@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 export default {
-  secret: '4b2bOOs4VR6ybzCEDFsLfe4qVqOa9g9L',
+  secret: process.env.SECRET,
 };

@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import koaBody from 'koa-body';
+import cors from '@koa/cors';
 
 import dotenv from 'dotenv';
 
@@ -16,6 +17,7 @@ async function start() {
   const app = new Koa();
 
   app
+    .use(cors())
     .use(koaBody())
     .use(errorHandler)
     .use(routes.routes())

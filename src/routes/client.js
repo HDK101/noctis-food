@@ -3,9 +3,9 @@ import Router from '@koa/router';
 import SessionController from '@/app/controllers/SessionController';
 import auth from '@/app/middlewares/auth';
 import OrderController from '@/app/controllers/OrderController';
-import CRUDRouter from './CRUDRouter';
-import UserController from '../app/controllers/UserController';
 import UserFoodController from '@/app/controllers/UserFoodController';
+import UserController from '@/app/controllers/client/UserController';
+import CRUDRouter from './CRUDRouter';
 
 const router = new Router();
 

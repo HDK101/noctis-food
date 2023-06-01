@@ -4,21 +4,21 @@ export default function CRUDController(Model, options) {
   const { exclude, routesOnly } = options || {};
 
   async function index(ctx) {
-      ctx.body = await Model.findAll({
-        attributes: {
-          exclude,
-        },
-        include: ctx.query.include,
-      });
+    ctx.body = await Model.findAll({
+      attributes: {
+        exclude,
+      },
+      include: ctx.query.include,
+    });
   }
 
   async function show(ctx) {
-      ctx.body = await Model.findByPk(+ctx.params.id, {
-        include: ctx.query.include,
-        attributes: {
-          exclude,
-        },
-      });
+    ctx.body = await Model.findByPk(+ctx.params.id, {
+      include: ctx.query.include,
+      attributes: {
+        exclude,
+      },
+    });
   }
 
   async function store(ctx) {

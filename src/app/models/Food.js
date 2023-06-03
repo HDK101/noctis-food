@@ -9,6 +9,7 @@ const Food = connection.define('Food', {
   },
   name: DataTypes.STRING,
   price: DataTypes.BIGINT.UNSIGNED,
+  image: DataTypes.STRING,
 });
 
 export default Food;

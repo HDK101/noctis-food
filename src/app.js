@@ -1,6 +1,8 @@
 import Koa from 'koa';
 import koaBody from 'koa-body';
 import cors from '@koa/cors';
+import serve from 'koa-static';
+import { resolve } from 'node:path';
 
 import dotenv from 'dotenv';
 
@@ -21,7 +23,8 @@ async function start() {
     .use(koaBody())
     .use(errorHandler)
     .use(routes.routes())
-    .use(routes.allowedMethods());
+    .use(routes.allowedMethods())
+    .use(serve(resolve('./uploads')));
 
   app.listen(3000);
 }

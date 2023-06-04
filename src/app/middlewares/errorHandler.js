@@ -1,9 +1,16 @@
+import DomainError from '../errors/DomainError';
+
 export default async function errorHandler(ctx, next) {
   try {
     await next();
   } catch (err) {
-    ctx.body = {
-      err: err.message,
-    };
+    if (err instanceof DomainError) {
+      ctx.status = err.status || 500;
+      ctx.body = {
+        err: err.message,
+      };
+      return;
+    }
+    ctx.status = 500;
   }
 }

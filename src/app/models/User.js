@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
 import bcrypt from 'bcrypt';
+import InvalidCredentialsUserError from '../errors/InvalidCredentialsUserError';
 
 const User = connection.define('User', {
   id: {
@@ -51,8 +52,10 @@ User.signIn = async (login, password) => {
     },
   });
 
+  if (!user) throw new InvalidCredentialsUserError(400, 'Credênciais inválidas');
+
   const result = await bcrypt.compare(password, user.passwordHash);
-  if (!result) throw new Error('Invalid credentials');
+  if (!result) throw new InvalidCredentialsUserError(400, 'Credênciais inválidas');
 
   return user;
 };

@@ -16,7 +16,7 @@ class OrderService {
 
     console.log(orders);
 
-    return orders.find((order) => order.UserId === user.id && order.id === id);
+    return orders.find((order) => order.id === Number(id));
   }
 
   async order({ user, foodIds }) {

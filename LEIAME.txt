@@ -3,8 +3,7 @@ Projeto de pedido de comida
 Bibliotecas utilizadas:
     Hashing de senha
         "bcrypt"
-
-    Variaveis de ambiente
+Variaveis de ambiente
         "dotenv"
 
     JWT:
@@ -47,11 +46,9 @@ Scripts:
     "npm run dev": Roda o programa em desenvolvimento
     "npm run build": Transpila o projeto para produção
     "npm run lint:fix": Roda a ferramente de análise de código e conserta os problemas
+    "npx sequelize db:seed:all": Roda todos os seeds para popular o banco
 
 Fluxo de uso:
-    Admin:
-        Criar comida:
-            1. POST /admin/foods Enviar token externo no header Authorization, "Bearer <token>"
     Usuário
         Criar sessao:
             1. Criar usuário, POST /client/users

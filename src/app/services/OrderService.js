@@ -14,8 +14,6 @@ class OrderService {
       include: FoodOrder,
     });
 
-    console.log(orders);
-
     return orders.find((order) => order.id === Number(id));
   }
 

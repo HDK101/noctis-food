@@ -36,9 +36,6 @@ Variaveis de ambiente
         "nodemon"
 
 Rotas:
-    CRUD de comidas: /foods
-    CRUD de usuarios: /users
-    
     Criar sessao: POST /sessions
     Criar pedido: POST /orders
 

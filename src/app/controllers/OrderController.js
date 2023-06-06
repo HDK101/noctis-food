@@ -6,7 +6,6 @@ export default class OrderController {
   }
 
   static async show(ctx) {
-    console.log(ctx.state.user);
     ctx.body = await OrderService.retrieve(ctx.state.user, ctx.params.id);
   }
 

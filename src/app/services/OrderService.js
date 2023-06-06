@@ -18,6 +18,7 @@ class OrderService {
     const foodOrders = await Promise.all(foods.map(async (food) => FoodOrder.create({
       name: food.name,
       price: food.price,
+      image: food.image,
     })));
     const order = await Order.create();
     order.addFoodOrders(foodOrders);

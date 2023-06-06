@@ -9,6 +9,7 @@ const FoodOrder = connection.define('FoodOrder', {
   },
   name: DataTypes.STRING,
   price: DataTypes.BIGINT.UNSIGNED,
+  image: DataTypes.STRING,
 });
 
 FoodOrder.associate = (models) => {

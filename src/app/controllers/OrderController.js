@@ -5,6 +5,11 @@ export default class OrderController {
     ctx.body = await OrderService.listAll(ctx.state.user);
   }
 
+  static async show(ctx) {
+    console.log(ctx.state.user);
+    // ctx.body = await OrderService.retrieve(ctx.state.user, ctx.params.id);
+  }
+
   static async store(ctx) {
     const { user } = ctx.state;
     ctx.body = await OrderService.order({

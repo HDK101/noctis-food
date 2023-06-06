@@ -15,6 +15,7 @@ router.use('/foods', CRUDRouter(UserFoodController).routes());
 
 router.use(auth);
 router.get('/orders', OrderController.index);
+router.get('/orders/:id', OrderController.show);
 router.post('/orders', OrderController.store);
 
 export default router;

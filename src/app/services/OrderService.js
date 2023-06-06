@@ -9,6 +9,16 @@ class OrderService {
     });
   }
 
+  async retrieve(user, id) {
+    const orders = await user.getOrders({
+      include: FoodOrder,
+    });
+
+    console.log(orders);
+
+    return orders.find((order) => order.UserId === user.id && order.id === id);
+  }
+
   async order({ user, foodIds }) {
     const foods = await Food.findAll({
       where: {
